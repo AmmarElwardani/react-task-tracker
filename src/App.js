@@ -3,9 +3,9 @@ import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
 import Footer from "./components/Footer";
 import About from "./components/About";
-
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 function App() {
   const [showAddTask, setShowAddTask] = useState(false);
   const [tasks, setTasks] = useState([]);
@@ -44,7 +44,7 @@ function App() {
 
     const data = await res.json();
     setTasks([...tasks, data]);
-
+    setShowAddTask(false);
     // const id = Math.floor(Math.random() * 10000) + 1 ;
     // const newTask = { id, ...task};
     // setTasks([...tasks, newTask]);
@@ -109,6 +109,7 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
         <Footer />
+      
       </div>
     </Router>
   );
